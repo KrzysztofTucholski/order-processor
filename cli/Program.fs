@@ -1,8 +1,10 @@
 ﻿// Learn more about F# at http://fsharp.org
 
-open System
+open OrderProcessor
 
 [<EntryPoint>]
 let main argv =
-    printfn "Hello World from F#!"
-    0 // return an integer exit code
+    argv
+    |> (fun a -> if a.Length > 0 then a.[0] else "")
+    |> OrderService.main
+    0 
